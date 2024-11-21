@@ -1,4 +1,5 @@
 import 'package:cenima_booking/constants.dart';
+import 'package:cenima_booking/pages/home_page_cenima.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +18,19 @@ class _CenimaMainScreenState extends State<CenimaMainScreen> {
     Icons.person_rounded
   ];
   int currentIndex = 0;
+
+  late final List<Widget> page;
   @override
+  void initState() {
+    page = [
+      const HomePageCenima(),
+      navBarPage(CupertinoIcons.compass_fill),
+      navBarPage(CupertinoIcons.ticket_fill),
+      navBarPage(Icons.person_rounded),
+    ];
+    super.initState();
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: appBackgroundColor,
@@ -62,6 +75,17 @@ class _CenimaMainScreenState extends State<CenimaMainScreen> {
           ),
         ),
       ),
+      body: page[currentIndex],
     );
   }
+}
+
+navBarPage(iconName) {
+  return Center(
+    child: Icon(
+      iconName,
+      size: 100,
+      color: Colors.white,
+    ),
+  );
 }
