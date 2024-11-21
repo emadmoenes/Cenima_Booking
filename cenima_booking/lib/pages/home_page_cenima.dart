@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:cenima_booking/constants.dart';
 import 'package:cenima_booking/models/category_model.dart';
 import 'package:cenima_booking/models/movie_model.dart';
+import 'package:cenima_booking/pages/detail_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePageCenima extends StatefulWidget {
@@ -120,12 +121,12 @@ class _HomePageCenimaState extends State<HomePageCenima> {
 
                           return GestureDetector(
                             onTap: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //     builder: (_) => MovieDetailPage(movie: movie),
-                              //   ),
-                              // );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => MovieDetailPage(movie: movie),
+                                ),
+                              );
                             },
                             child: Padding(
                               padding: EdgeInsets.only(
